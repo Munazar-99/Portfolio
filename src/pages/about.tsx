@@ -41,7 +41,7 @@ const AnimatedNumbers = ({ value }: { value: number }) => {
 }
 
 
-const about = ({aboutPage, skills}:Props) => {
+const About = ({aboutPage, skills}:Props) => {
     console.log(skills)
     return (
         <>
@@ -93,7 +93,7 @@ const about = ({aboutPage, skills}:Props) => {
     )
 }
 
-export default about
+export default About
 
 export const getStaticProps:GetStaticProps<Props> = async() => {
     const aboutPage = await fetchAboutPage();

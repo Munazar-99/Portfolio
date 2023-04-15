@@ -67,8 +67,7 @@ const Project = ({ type, title, summary, image, link, github }: { type: string, 
     )
 }
 
-function projects({projects}:Props) {
-    console.log(projects)
+function Projects({projects}:Props) {
     return (
         <>
             <Head>
@@ -109,4 +108,4 @@ export const getStaticProps:GetStaticProps<Props> = async() => {
       revalidate:10
     }
   }
-export default projects
+export default Projects

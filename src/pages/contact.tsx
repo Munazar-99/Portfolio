@@ -5,7 +5,7 @@ import {ContactSvg} from '../components/Icons'
 import AnimatedText from '@/components/AnimatedText'
 import emailjs from '@emailjs/browser';
 
-const contact = () => {
+const Contact = () => {
     console.log(process.env.NEXT_PUBLIC_SERVICE_ID)
     const formData = useRef<HTMLFormElement>(null)
     
@@ -52,4 +52,4 @@ const contact = () => {
     )
 }
 
-export default contact
+export default Contact
