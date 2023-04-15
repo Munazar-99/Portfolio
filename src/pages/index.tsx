@@ -8,8 +8,9 @@ import TransitionEffect from '@/components/TransitionEffect'
 import { fetchHomePage } from '../../utils/fetchHomePage'
 import { GetStaticProps } from 'next'
 import { HomePage } from '../../typings'
-import { urlFor } from '../../sanity'
+import { sanityClient, urlFor } from '../../sanity'
 import {  useTypewriter } from 'react-simple-typewriter'
+import { groq } from 'next-sanity'
 
 
 
@@ -73,7 +74,11 @@ export default function Home({homepage}:Props) {
 
 
 export const getStaticProps:GetStaticProps<Props> = async() => {
-  const homepage = await fetchHomePage();
+  const query = groq`*[_type == 'homepage'][0]{
+    ...,
+    socials[]->
+}`
+  const homepage:HomePage = await sanityClient.fetch(query)
   return {
     props:{homepage},
     revalidate:10

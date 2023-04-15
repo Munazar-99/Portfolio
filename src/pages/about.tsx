@@ -10,6 +10,8 @@ import { GetStaticProps } from 'next'
 import { fetchAboutPage } from '../../utils/fetchAboutPages'
 import { AboutPage, Skill } from '../../typings'
 import { fetchSkills } from '../../utils/fetchSkills'
+import { sanityClient } from '../../sanity'
+import { groq } from 'next-sanity'
 
 type Props = {
     aboutPage: AboutPage;
@@ -96,8 +98,12 @@ const About = ({aboutPage, skills}:Props) => {
 export default About
 
 export const getStaticProps:GetStaticProps<Props> = async() => {
-    const aboutPage = await fetchAboutPage();
-    const skills = await fetchSkills();
+    const query = groq`*[_type == 'skill']`
+
+    const aboutQuery = groq`*[_type == 'aboutpage'][0]`
+    const aboutPage:AboutPage = await sanityClient.fetch(aboutQuery)
+    const skills:Skill[] = await sanityClient.fetch(query)
+
     return {
       props:{aboutPage,skills},
       revalidate:10

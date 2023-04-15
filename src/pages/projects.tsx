@@ -10,6 +10,8 @@ import TransitionEffect from '@/components/TransitionEffect'
 import { Project } from '../../typings'
 import { GetStaticProps } from 'next'
 import { fetchProjects } from '../../utils/fetchProjects'
+import { sanityClient } from '../../sanity'
+import { groq } from 'next-sanity'
 
 
 type Props = {
@@ -102,7 +104,11 @@ function Projects({projects}:Props) {
 }
 
 export const getStaticProps:GetStaticProps<Props> = async() => {
-    const projects = await fetchProjects();
+    const query = groq`*[_type == 'projects'] | order(_createdAt desc){
+        ...,
+        technologies[]->
+    }`
+    const projects:Project[] = await sanityClient.fetch(query)
     return {
       props:{projects},
       revalidate:10
