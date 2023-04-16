@@ -36,8 +36,8 @@ export default function Home({homepage}:Props) {
           <section className='flex items-center justify-between w-full lg:flex-col'>
             <article className='w-1/2 md:w-full '>
               
-              <Image
-                src={profilePic}
+              <img
+                src={urlFor(homepage.heroImage).url()}
                  alt='munazar'
                   className='  w-[95%]  h-auto lg:hidden md:inline-block md:w-full '
                   sizes="(max-width: 768px) 100vw,

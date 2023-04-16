@@ -20,6 +20,7 @@ const Logo = () => {
     className='w-16 h-16 bg-dark fill-light text-light flex justify-center items-center rounded-full text-2xl font-bold border border-solid border-transparent dark:border-light'
     >
         <Image
+        priority
         src={Mlogo}
         alt='letter M'
         />
