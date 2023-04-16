@@ -40,7 +40,7 @@ export default function Home({ homepage }: Props) {
                 width={500}
                 height={500}
                 priority={true}
-                src={`${urlFor(homepage.heroImage).url()}`}
+                src={urlFor(homepage.heroImage).url()}
                 alt='munazar'
                 className='  w-[95%]  h-auto lg:hidden md:inline-block md:w-full '
                 sizes="(max-width: 768px) 100vw,
