@@ -3,14 +3,13 @@ import Head from 'next/head'
 import profilePic from '../../public/images/developer-pic-1.png'
 import AnimatedText from '../components/AnimatedText'
 import Link from 'next/link'
-import SvgComponent, {  LinkArrow } from '../components/Icons'
 import TransitionEffect from '@/components/TransitionEffect'
-import { fetchHomePage } from '../../utils/fetchHomePage'
 import { GetStaticProps } from 'next'
 import { HomePage } from '../../typings'
 import { sanityClient, urlFor } from '../../sanity'
 import {  useTypewriter } from 'react-simple-typewriter'
 import { groq } from 'next-sanity'
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/solid'
 
 
 
@@ -37,8 +36,8 @@ export default function Home({homepage}:Props) {
           <section className='flex items-center justify-between w-full lg:flex-col'>
             <article className='w-1/2 md:w-full '>
               
-              <img
-                src={urlFor(homepage?.heroImage).url()}
+              <Image
+                src={profilePic}
                  alt='munazar'
                   className='  w-[95%]  h-auto lg:hidden md:inline-block md:w-full '
                   sizes="(max-width: 768px) 100vw,
@@ -54,10 +53,10 @@ export default function Home({homepage}:Props) {
               </p>
               <div className='flex items-center self-start mt-2 lg:self-center'>
                 <Link href='/dummy.pdf' target={'_blank'} 
-                className='flex items-center bg-dark text-light p-2.5 px-6 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent max-h-[40px]
+                className='flex items-center bg-dark text-light p-2.5 px-6 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent 
                  hover:border-dark dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light hover:dark:border-light md:p-2 md:px-4 md:text-base  '
                   download={true}
-                >Resume  <LinkArrow className={'w-6 ml-1'} />
+                >Resume  <ArrowTopRightOnSquareIcon className={'w-6 ml-1'} />
                 </Link>
                 <Link
                   className='ml-4 text-lg font-medium capitalize text-dark underline dark:text-light md:text-base'

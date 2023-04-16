@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import {motion} from 'framer-motion'
-import {Elogo, GithubIcon, LinkedInIcon, MoonIcon, SunIcon} from './Icons'
+import { GithubIcon, LinkedInIcon } from './Icons'
 import Logo from './Logo'
 import useThemeSwitcher from './hooks/useThemeSwitcher'
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
