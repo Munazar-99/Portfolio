@@ -71,11 +71,11 @@ const Navbar = () => {
       </nav>
       </section>
       {
-        open ? 
+        open && 
         <motion.section
         initial={{scale:0, opacity:0, x:'-50%', y: '-50%'}}
         animate={{scale:1, opacity:1}}
-        className='min-w-[70vw] min-h-[60vh]  flex flex-col justify-between items-center fixed  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 bg-dark/90 dark:bg-light/75 rounded-lg backdrop-blur-md py-12'>
+        className='min-w-[70vw]   flex flex-col justify-between items-center fixed  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 bg-dark/90 dark:bg-light/75 rounded-lg backdrop-blur-md py-12'>
       <nav className='flex items-center flex-col justify-center'>
         <CustomMobileLink href='/' title='Home' className=''/>
         <CustomMobileLink href='/about' title='About' className=''/>
@@ -87,16 +87,15 @@ const Navbar = () => {
         <motion.a whileTap={{scale:0.9}} whileHover={{y:-3}} href='https://github.com/Munazar-99' target={'_blank'} className='w-[1.85rem] mx-4 h-[1.85rem] bg-light rounded-full dark:bg-dark sm:mr-1'><GithubIcon/></motion.a>
         <motion.a whileTap={{scale:0.9}} whileHover={{y:-3}} href='https://www.linkedin.com/in/munazar-abdulle-9140b9259/' target={'_blank'} className='w-[1.85rem] mx-4 h-[1.85rem] sm:mr-1'><LinkedInIcon/></motion.a>
         <button onClick={themeHandler}
-        className='ml-3 flex items-center justify-center rounded-full p-1  '>
+        className='ml-3 flex items-center justify-center rounded-full p-1   '>
             <DarkModeSwitch 
-            style={{ fill: 'black' }}
             checked={!isDark}
             onChange={themeHandler}
             />
         </button>
       </nav>
       </motion.section>
-      : ''
+      
       }
 
       <div className='absolute left-[50%] top-2 translate-x-[-50%] '>
