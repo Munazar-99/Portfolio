@@ -67,7 +67,7 @@ const About = ({aboutPage, skills}:Props) => {
                         <div className='col-span-4   flex justify-center items-center md:order-1 lg:hidden md:flex md:col-span-9 '>
                         <section className='h-max w-[80%] relative rounded-2xl border-2 border-solid border-dark bg-light p-8 xl:h-full xl:w-full lg:h-[85%] lg:w-[85%] xs:h-max xs:w-full dark:bg-dark  dark:border-light'>
                             <div className='absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] rounded-br-3xl bg-dark dark:bg-light ' />
-                            <Image src={profilePic} alt='Munazar Ali' className='w-full h-full rounded-2xl  ' 
+                            <Image priority={true} src={profilePic} alt='Munazar Ali' className='w-full h-full rounded-2xl  ' 
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             />
                             
