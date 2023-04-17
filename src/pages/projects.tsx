@@ -45,7 +45,7 @@ const FeaturedProject = ({  title, summary, image, link, github }: {  title: str
 
 const Project = ({ title, summary, image, link, github }: { title: string, summary: string, image: string, link: string, github: string }) => {
     return (
-        <div className='w-full flex-col items-center justify-center rounded-2xl border border-solid border-dark bg-light  p-6 relative shadow-2xl dark:bg-dark dark:border-light xs:p-4  '>
+        <div className='w-full flex-col items-center justify-center rounded-2xl border border-solid border-dark bg-light max-h-full  p-6 relative shadow-2xl dark:bg-dark dark:border-light xs:p-4  '>
             <div className='absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] rounded-br-3xl bg-dark/50 dark:bg-light md:-right-2 md:w-[101%] xs:h-[102%] xs:roubded-[1.5rem]' />
             <Link href={link} target='_blank'
                 className='w-full cursor-pointer overflow-hidden rounded-lg  '

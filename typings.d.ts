@@ -43,7 +43,7 @@ export interface AboutPage extends SanityBody {
     firstParagraph: string
     secondParagraph: string
     thirdParagraph: string
-    profileimage: Image
+    profileimge: Image
 }
 export interface Skill extends SanityBody {
     _type: 'skill'

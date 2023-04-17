@@ -1,7 +1,7 @@
 import AnimatedText from '@/components/AnimatedText'
 import Head from 'next/head'
 import React, { useEffect, useRef } from 'react'
-import profilePic from '../../public/Images/developer-pic-2.jpg'
+import profilePic from '../../public/Images/developer-pic-3.jpeg'
 import Image from 'next/image'
 import { useInView, useMotionValue, useSpring } from 'framer-motion'
 import Skills from '@/components/Skills'
@@ -10,8 +10,9 @@ import { GetStaticProps } from 'next'
 import { fetchAboutPage } from '../../utils/fetchAboutPages'
 import { AboutPage, Skill } from '../../typings'
 import { fetchSkills } from '../../utils/fetchSkills'
-import { sanityClient } from '../../sanity'
 import { groq } from 'next-sanity'
+import { sanityClient, urlFor } from '../../sanity'
+
 
 type Props = {
     aboutPage: AboutPage;
@@ -44,7 +45,7 @@ const AnimatedNumbers = ({ value }: { value: number }) => {
 
 
 const About = ({aboutPage, skills}:Props) => {
-    console.log(skills)
+    console.log(aboutPage)
     return (
         <>
             <Head>
@@ -65,9 +66,10 @@ const About = ({aboutPage, skills}:Props) => {
                             <p className="font-medium">{aboutPage.thirdParagraph}</p>
                         </div>
                         <div className='col-span-4   flex justify-center items-center md:order-1 lg:hidden md:flex md:col-span-9 '>
-                        <section className='h-max w-[80%] relative rounded-2xl border-2 border-solid border-dark bg-light p-8 xl:h-full xl:w-full lg:h-[85%] lg:w-[85%] xs:h-max xs:w-full dark:bg-dark  dark:border-light'>
+                        <section className='h-max w-[80%] relative rounded-2xl border-2 border-solid border-dark bg-light p-8 xl:h-full xl:w-full lg:h-[85%] lg:w-[85%] xs:h-max xs:w-full
+                        md:h-[95%] md:w-[75%]  dark:bg-dark  dark:border-light'>
                             <div className='absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] rounded-br-3xl bg-dark dark:bg-light ' />
-                            <Image priority={true} src={profilePic} alt='Munazar Ali' className='w-full h-full rounded-2xl  ' 
+                            <Image priority={true} src={urlFor(aboutPage.profileimge).url()} width={1179} height={1570}  alt='Munazar Ali' className='w-full h-full rounded-2xl  ' 
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             />
                             
