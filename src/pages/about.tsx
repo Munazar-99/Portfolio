@@ -45,7 +45,6 @@ const AnimatedNumbers = ({ value }: { value: number }) => {
 
 
 const About = ({aboutPage, skills}:Props) => {
-    console.log(aboutPage)
     return (
         <>
             <Head>
@@ -55,7 +54,7 @@ const About = ({aboutPage, skills}:Props) => {
             <TransitionEffect/>
             <main className="flex w-full flex-col items-center justify-center dark:text-light  ">
                 <section className="w-full h-full inline-block z-0 bg-light p-32 pt-16 lg:p-16 md:p-12 sm:p-8  dark:bg-dark">
-                    <AnimatedText text='Passion Fuels Purpose!' className='mb-16 !text-[4rem] lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8' />
+                    <AnimatedText text='Coding Across Continents!' className='mb-16 !text-[4rem] lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8' />
                     <article className=" grid w-full grid-cols-9 gap-4 xl:gap-8 lg:gap-4 sm:gap-8">
                         <div className="col-span-5  flex flex-col items-start justify-center md:order-2  md:col-span-9 lg:col-span-9 xs:text-left">
                             <h2 className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75">

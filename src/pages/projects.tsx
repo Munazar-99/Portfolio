@@ -45,7 +45,7 @@ const FeaturedProject = ({  title, summary, image, link, github }: {  title: str
 
 const Project = ({ title, summary, image, link, github }: { title: string, summary: string, image: string, link: string, github: string }) => {
     return (
-        <div className='w-full flex-col items-center justify-center rounded-2xl border border-solid border-dark bg-light max-h-full  p-6 relative shadow-2xl dark:bg-dark dark:border-light xs:p-4  '>
+        <div className='w-full min-h-full h-max flex-col items-center justify-center rounded-2xl border border-solid border-dark bg-light max-h-full  p-6 relative shadow-2xl dark:bg-dark dark:border-light xs:p-4  '>
             <div className='absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] rounded-br-3xl bg-dark/50 dark:bg-light md:-right-2 md:w-[101%] xs:h-[102%] xs:roubded-[1.5rem]' />
             <Link href={link} target='_blank'
                 className='w-full cursor-pointer overflow-hidden rounded-lg  '
@@ -53,7 +53,7 @@ const Project = ({ title, summary, image, link, github }: { title: string, summa
                 <Image src={image} alt={title} width={1280} height={720} priority={true} className='w-full h-auto' />
             </Link>
 
-            <div className='w-full flex flex-col items-start justify-between mt-4 '>
+            <div className='w-full flex flex-col items-start justify-between  mt-4 '>
                 <span className='text-primary font-medium text-xl dark:text-primaryDark xs:text-base lg-text-lg md-text-base   '> Featured Project </span>
                 <Link href={link} target='_blank' className='hover:underline underline-offset-2 '>
                     <h2 className='my-2 w-full text-left text-3xl font-bold  lg:text-2xl   '>{title}</h2>
@@ -76,12 +76,11 @@ function Projects({projects}:Props) {
                 <meta name='description' content='any description' />
             </Head>
             <TransitionEffect/>
-            <main className='w-full mb-16 flex flex-col items-center justify-center dark:text-light '>
+            <main className='w-full mb-16 flex flex-col items-center justify-center dark:text-light  '>
                 <section className='w-full h-full inline-block z-0 bg-light p-24 pt-12 md:pt-16 md:p-12 sm:p-8 dark:bg-dark'>
                     <AnimatedText text='My Recent Work' className='mb-16 !text-[4rem] lg:!text-7xl sm:!mb-8 sm:!text-6xl xs:!text-6xl' />
                     <section className='grid grid-cols-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0 '>
                         {projects.map((project, i) =>{
-                            console.log(project)
                             return (
                                 i%3==0 ? (
                                     <article key={project._id} className='col-span-12'>

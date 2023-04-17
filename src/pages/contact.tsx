@@ -15,6 +15,7 @@ const Contact = () => {
         formData.current && emailjs.sendForm(`${process.env.NEXT_PUBLIC_SERVICE_ID}`, `${process.env.NEXT_PUBLIC_TEMPLATE_ID}`, formData.current, `${process.env.NEXT_PUBLIC_PUBLIC_KEY}`)
             .then((result) => {
                 console.log(result);
+                formData.current?.reset()
 
             }, (error) => {
                 console.log(error.text);
@@ -27,7 +28,7 @@ const Contact = () => {
                 <meta name='description' content='any description' />
             </Head>
             <TransitionEffect />
-  
+
             <main className='flex w-full h-screen  flex-wrap p-24 pt-16 md:p-2 md:pt-6   md:justify-center md:items-center lg:p-10 xl:p-12  '>
                 <section className=' flex h-[550px] w-1/2 dark:bg-dark bg-light md:hidden lg:h-[400px] lg:mt-8  xl:h-[450px]'>
 
@@ -39,14 +40,15 @@ const Contact = () => {
                     <form ref={formData} onSubmit={sendEmail} className='w-full max-h-full bg-light flex flex-wrap  gap-2 content-start  gap-y-6 md:gap-y-6 dark:bg-dark md:max-w-[430px]  '>
                         <input name='first-Name' required type="text" placeholder='First Name' className='w-[48%]  border-2 border-solid h-[3rem] border-black rounded-2xl  bg-dark/10 md:w-full dark:bg-light/10 md:h-[2.5rem] p-5 dark:text-light dark:border-light' />
                         <input name='last-Name' required type="text" placeholder='Last Name' className='w-[48%] border-2 border-solid h-[3rem] border-black rounded-2xl  bg-dark/10 md:w-full dark:bg-light/10 md:h-[2.5rem] p-5 dark:text-light  dark:border-light' />
-                        <input name='email-Address' required type="email" placeholder='Email Address' className='w-[48%] border-2 border-solid h-[3rem] border-black rounded-2xl  bg-dark/10 md:w-full dark:bg-light/10 md:h-[2.5rem] p-5 dark:text-light dark:border-light ' />
+                        <input name='email-Address' required type="email" placeholder='Email Address' className='w-[48%] border-2 border-solid h-[3rem] border-black rounded-2xl  bg-dark/10 md:w-full dark:bg-light/10 md:h-[2.5rem] p-5 dark:text-light dark:border-light '/>
                         <input name='phone-Number' type="number" placeholder='Phone No.' className='w-[48%] border-2 border-solid h-[3rem] border-black rounded-2xl  bg-dark/10 md:w-full dark:bg-light/10 md:h-[2.5rem] p-5 dark:text-light  dark:border-light' />
-                        <textarea name='message' required rows={4} placeholder='Message' className='border-2 border-black border-solid w-full resize-none dark:bg-light/10 p-3 rounded-2xl dark:border-light md:p-4' />
+                        <textarea name='message' required rows={4} placeholder='Message' className='border-2 border-black border-solid w-full resize-none dark:bg-light/10 p-3 bg-dark/10 rounded-2xl dark:border-light md:p-4' />
                         <button value={'send'}
                             className='flex items-center bg-dark text-light p-2.5 px-6 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent
                  hover:border-dark dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light hover:dark:border-light md:p-2 md:px-2 md:text-base   '
                         >Submit
                         </button>
+                {/* <div className='w-3/4 bg-green-500  mb-4  p-2.5  '>Thank you for your message.I will contact you shortly</div> */}
                     </form>
                 </section>
             </main>
