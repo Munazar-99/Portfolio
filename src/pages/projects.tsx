@@ -8,7 +8,7 @@ import React from 'react'
 import projectpage from '../../public/Images/agency-website-cover-image.jpg'
 import TransitionEffect from '@/components/TransitionEffect'
 import { Project } from '../../typings'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps, GetStaticProps } from 'next'
 import { sanityClient, urlFor } from '../../sanity'
 import { groq } from 'next-sanity'
 
@@ -35,7 +35,7 @@ const FeaturedProject = ({  title, summary, image, link, github }: {  title: str
                 </Link>
                 <p className='my-2 font-medium text-dark dark:text-light sm:text-sm '>{summary}</p>
                 <div className='mt-2 flex items-center justify-between w-full'>
-                    <Link href={link} target='_blank' className='w-10'><GithubIcon /></Link>
+                    <Link href={github} target='_blank' className='w-10'><GithubIcon /></Link>
                     <Link href={link} target='_blank' className='m1-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold dark:bg-light dark:text-dark sm:px-4 sm:text-base '>Visit Project</Link>
                 </div>
             </div>
@@ -115,7 +115,7 @@ function Projects({projects}:Props) {
     )
 }
 
-export const getStaticProps:GetStaticProps<Props> = async() => {
+export const getServerSideProps:GetServerSideProps<Props> = async() => {
     const query = groq`*[_type == 'projects'] | order(_createdAt desc){
         ...,
         technologies[]->
@@ -123,7 +123,6 @@ export const getStaticProps:GetStaticProps<Props> = async() => {
     const projects:Project[] = await sanityClient.fetch(query)
     return {
       props:{projects},
-      revalidate:10
     }
   }
 export default Projects
