@@ -8,7 +8,7 @@ import React from 'react'
 import projectpage from '../../public/Images/agency-website-cover-image.jpg'
 import TransitionEffect from '@/components/TransitionEffect'
 import { Project } from '../../typings'
-import { GetServerSideProps, GetStaticProps } from 'next'
+import { GetStaticProps } from 'next'
 import { sanityClient, urlFor } from '../../sanity'
 import { groq } from 'next-sanity'
 
@@ -115,7 +115,7 @@ function Projects({projects}:Props) {
     )
 }
 
-export const getServerSideProps:GetServerSideProps<Props> = async() => {
+export const getStaticProps:GetStaticProps<Props> = async() => {
     const query = groq`*[_type == 'projects'] | order(_createdAt desc){
         ...,
         technologies[]->
@@ -123,6 +123,7 @@ export const getServerSideProps:GetServerSideProps<Props> = async() => {
     const projects:Project[] = await sanityClient.fetch(query)
     return {
       props:{projects},
+      revalidate:10
     }
   }
 export default Projects
