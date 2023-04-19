@@ -25,9 +25,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       `}</style>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Experienced software developer specializing in web development, mobile app development, and software engineering. Seeking new opportunities in the tech industry." />
+        <meta name="keywords" content="software developer, web development, mobile app development, software engineering, tech industry, job search" />
+        <meta name="author" content="Munazar Ali Abdulle" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${montserrat.className} bg-light w-full min-h-screen dark:bg-dark`} >
+      <main className={`${montserrat.className} bg-light w-full min-h-screen dark:bg-dark `} >
       <Navbar/>
       <AnimatePresence mode='wait'>
       <Component key={router.asPath}  {...pageProps} />

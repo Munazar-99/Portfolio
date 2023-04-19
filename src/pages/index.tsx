@@ -33,7 +33,7 @@ export default function Home({ homepage }: Props) {
         <meta name="author" content="Munazar Ali Abdulle" />
       </Head>
       <TransitionEffect />
-      <main className="flex items-center text-dark w-full min-h-auto dark:text-light">
+      <main className="flex items-center text-dark w-full min-h-auto dark:text-light ">
         <section className='w-full h-full inline-block z-0 bg-light p-24 pt-0 md:pt-16 sm:pt-8 dark:bg-dark xl:p-24 lg:p-16 md:p-12 sm:p-8 lg:mb-32 lg:mt-10 sm:mb-10'>
           <section className='flex items-center justify-between w-full lg:flex-col'>
             <article className='w-1/2 md:w-full '>
