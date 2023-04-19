@@ -1,7 +1,6 @@
 import AnimatedText from '@/components/AnimatedText'
 import Head from 'next/head'
 import React, { useEffect, useRef } from 'react'
-import profilePic from '../../public/Images/developer-pic-3.jpeg'
 import Image from 'next/image'
 import { useInView, useMotionValue, useSpring } from 'framer-motion'
 import Skills from '@/components/Skills'
