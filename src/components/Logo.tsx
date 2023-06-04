@@ -1,32 +1,34 @@
-import React from 'react'
-import {motion} from 'framer-motion'
-import Link from 'next/link'
-import SvgComponent from './Icons'
-import Mlogo from '../../public/Images/m-logo.png'
-import Image from 'next/image'
-
-
+import React from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import SvgComponent from "./Icons";
+import Mlogo from "../../public/Images/m-logo.png";
+import Image from "next/image";
 
 const Logo = () => {
-    const MotionLink = motion(Link)
+  const MotionLink = motion(Link);
 
   return (
-    <article className='flex items-center just-center mt-2'>
-    <MotionLink href='/'
-    whileHover={{
-        backgroundColor:["#121212", "rgba(131,58,180,1)","rgba(253,29,29,1)","rgba(252,176,69,1)","rgba(131,58,180,1)", "#121212"],
-        transition: {duration: 1, repeat: Infinity}
-    }}
-    className='w-16 h-16 bg-dark fill-light text-light flex justify-center items-center rounded-full text-2xl font-bold border border-solid border-transparent dark:border-light'
-    >
-        <Image
-        priority
-        src={Mlogo}
-        alt='letter M'
-        />
-    </MotionLink>
-</article>
-  )
-}
+    <article className="flex items-center just-center mt-2">
+      <MotionLink
+        href="/"
+        whileHover={{
+          backgroundColor: [
+            "#121212",
+            "rgba(131,58,180,1)",
+            "rgba(253,29,29,1)",
+            "rgba(252,176,69,1)",
+            "rgba(131,58,180,1)",
+            "#121212",
+          ],
+          transition: { duration: 1, repeat: Infinity },
+        }}
+        className="w-16 h-16 bg-dark fill-light text-light flex justify-center items-center rounded-full text-2xl font-bold border border-solid border-transparent dark:border-light"
+      >
+        <Image priority src={Mlogo} alt="letter M" />
+      </MotionLink>
+    </article>
+  );
+};
 
-export default Logo
+export default Logo;

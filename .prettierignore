@@ -1,0 +1,13 @@
+gitignore
+.eslintrc.json 
+.next
+node_modules
+.vercel
+.prettierrc.js
+next-env.d.ts
+next.config.js
+package-lock.json
+package.json
+postcss.config.js
+public
+sanity 
