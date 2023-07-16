@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Head from "next/head";
-import profilePic from "../../public/images/developer-pic-1.png";
 import AnimatedText from "../components/AnimatedText";
 import Link from "next/link";
 import TransitionEffect from "@/components/TransitionEffect";
@@ -97,5 +96,3 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     revalidate: 10,
   };
 };
-
-// {urlFor(homepage.heroImage).url()}
