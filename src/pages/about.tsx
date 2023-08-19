@@ -1,42 +1,17 @@
 import AnimatedText from "@/components/AnimatedText";
 import Head from "next/head";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Image from "next/image";
-import { useInView, useMotionValue, useSpring } from "framer-motion";
 import Skills from "@/components/Skills";
 import TransitionEffect from "@/components/TransitionEffect";
 import { GetStaticProps } from "next";
-import { fetchAboutPage } from "../../utils/fetchAboutPages";
-import { AboutPage, Skill } from "../../typings";
-import { fetchSkills } from "../../utils/fetchSkills";
+import { AboutPage, Tskill } from "../../typings";
 import { groq } from "next-sanity";
 import { sanityClient, urlFor } from "../../sanity";
 
 type Props = {
   aboutPage: AboutPage;
-  skills: Skill[];
-};
-
-const AnimatedNumbers = ({ value }: { value: number }) => {
-  const ref = useRef<HTMLSpanElement>(null);
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, { duration: 3000 });
-  const isInView = useInView(ref, { once: true });
-  useEffect(() => {
-    if (isInView) {
-      motionValue.set(value);
-    }
-  }, [isInView, value, motionValue]);
-
-  useEffect(() => {
-    springValue.on("change", (latest) => {
-      if (ref.current && latest.toFixed(0) <= value) {
-        ref.current.innerText = latest.toFixed(0);
-      }
-    });
-  }, [springValue, value]);
-
-  return <span ref={ref}></span>;
+  skills: Tskill[];
 };
 
 const About = ({ aboutPage, skills }: Props) => {
@@ -44,7 +19,12 @@ const About = ({ aboutPage, skills }: Props) => {
     <>
       <Head>
         <title>Munazar Ali About Page</title>
-        <meta name="description" content="any description" />
+        <meta name="description" content="My Background" />
+        <meta
+          name="keywords"
+          content="software developer, web development, mobile app development, software engineering, tech industry, job search"
+        />
+        <meta name="author" content="Munazar Ali Abdulle" />
       </Head>
       <TransitionEffect />
       <main className="flex w-full flex-col items-center justify-center dark:text-light  ">
@@ -79,20 +59,6 @@ const About = ({ aboutPage, skills }: Props) => {
                 />
               </section>
             </div>
-            {/* <section className='col-span-2 flex flex-col items-end justify-between  '>
-                            <article className='flex flex-col items-end justify-center ' >
-                                <span className='inline-block text-7xl font-bold'><AnimatedNumbers value={50}/>+</span>
-                                <h2 className='text-xl font-medium cpitalize text-dark/75'>satisfied clients</h2>
-                            </article>
-                            <article className='flex flex-col items-end justify-center '>
-                            <span className='inline-block text-7xl font-bold'><AnimatedNumbers value={40}/>+</span>
-                                <h2 className='text-xl font-medium cpitalize text-dark/75' >projects completed</h2>
-                            </article>
-                            <article className='flex flex-col items-end justify-center '>
-                            <span className='inline-block text-7xl font-bold'><AnimatedNumbers value={4}/>+</span>
-                                <h2 className='text-xl font-medium cpitalize text-dark/75'>yeas of experience</h2>
-                            </article>
-                        </section> */}
           </article>
           <Skills skills={skills} />
         </section>
@@ -108,7 +74,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
   const aboutQuery = groq`*[_type == 'aboutpage'][0]`;
   const aboutPage: AboutPage = await sanityClient.fetch(aboutQuery);
-  const skills: Skill[] = await sanityClient.fetch(query);
+  const skills: Tskill[] = await sanityClient.fetch(query);
 
   return {
     props: { aboutPage, skills },
