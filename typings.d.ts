@@ -28,7 +28,7 @@ export interface HomePage extends SanityBody {
     logo: Image
     body: string
 }
-export interface Project extends SanityBody {
+export interface Tproject extends SanityBody {
     _type: 'projects'
     title: string
     image: Image
@@ -45,7 +45,7 @@ export interface AboutPage extends SanityBody {
     thirdParagraph: string
     profileimge: Image
 }
-export interface Skill extends SanityBody {
+export interface Tskill extends SanityBody {
     _type: 'skill'
     title: string
     xvalue:sring
