@@ -33,6 +33,11 @@ const Contact = () => {
       <Head>
         <title>Munazar Ali Contact Page</title>
         <meta name="description" content="any description" />
+        <meta
+          name="keywords"
+          content="software developer, web development, mobile app development, software engineering, tech industry, job search"
+        />
+        <meta name="author" content="Munazar Ali Abdulle" />
       </Head>
       <TransitionEffect />
 
@@ -92,7 +97,6 @@ const Contact = () => {
             >
               Submit
             </button>
-            {/* <div className='w-3/4 bg-green-500  mb-4  p-2.5  '>Thank you for your message.I will contact you shortly</div> */}
           </form>
         </section>
       </main>
