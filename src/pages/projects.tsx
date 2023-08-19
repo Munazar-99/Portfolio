@@ -5,144 +5,18 @@ import Head from "next/head";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import React from "react";
-import projectpage from "../../public/Images/agency-website-cover-image.jpg";
 import TransitionEffect from "@/components/TransitionEffect";
-import { Project } from "../../typings";
+import { Tproject } from "../../typings";
 import { GetStaticProps } from "next";
 import { sanityClient, urlFor } from "../../sanity";
 import { groq } from "next-sanity";
+import FeaturedProject from "@/components/FeaturedProject";
+import Project from "@/components/Project";
 
 type Props = {
-  projects: Project[];
+  projects: Tproject[];
 };
 
-const FeaturedProject = ({
-  title,
-  summary,
-  image,
-  link,
-  github,
-}: {
-  title: string;
-  summary: string;
-  image: string;
-  link: string;
-  github: string;
-}) => {
-  return (
-    <div className="w-full flex items-center justify-between ronded-br-2xl relative rounded-3xl border border-solid border-dark bg-light shadow-2xl p-12 dark:bg-dark dark:border-light lg:flex-col lg:p-8 xs:rounded-2xl xs:rounded-br-3xl  xs:p-4 ">
-      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] rounded-br-3xl bg-dark/50 dark:bg-light/80 xs:-right-2 sm:h-[102%] xs:w-full xs:rounded-[1.5rem]" />
-
-      <Link
-        href={github}
-        target="_blank"
-        className="w-1/2 cursor-pointer overflow-hidden rounded-lg lg:w-full "
-      >
-        <Image
-          src={image}
-          alt={title}
-          width={1280}
-          height={720}
-          priority={true}
-          className="w-full h-auto"
-        />
-      </Link>
-
-      <div className="w-1/2 flex flex-col items-start justify-between pl-6 lg:w-full lg:pl-0 lg:pt-6">
-        <span className="text-primary font-medium text-xl dark:text-primaryDark xs:text-base">
-          Featured Projects
-        </span>
-        <Link
-          href={link}
-          target="_blank"
-          className="hover:underline underline-offset-2 "
-        >
-          <h2 className="my-2 w-full text-left text-4xl font-bold dark:text-light sm:text-sm  ">
-            {title}
-          </h2>
-        </Link>
-        <p className="my-2 font-medium text-dark dark:text-light sm:text-sm ">
-          {summary}
-        </p>
-        <div className="mt-2 flex items-center justify-between w-full">
-          <Link href={github} target="_blank" className="w-10">
-            <GithubIcon />
-          </Link>
-          <Link
-            href={link}
-            target="_blank"
-            className="m1-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold dark:bg-light dark:text-dark sm:px-4 sm:text-base "
-          >
-            Visit Project
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const Project = ({
-  title,
-  summary,
-  image,
-  link,
-  github,
-}: {
-  title: string;
-  summary: string;
-  image: string;
-  link: string;
-  github: string;
-}) => {
-  return (
-    <div className="w-full min-h-full h-max flex-col items-center justify-center rounded-2xl border border-solid border-dark bg-light max-h-full  p-6 relative shadow-2xl dark:bg-dark dark:border-light xs:p-4  ">
-      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] rounded-br-3xl bg-dark/50 dark:bg-light md:-right-2 md:w-[101%] xs:h-[102%] xs:roubded-[1.5rem]" />
-      <Link
-        href={link}
-        target="_blank"
-        className="w-full cursor-pointer overflow-hidden rounded-lg  "
-      >
-        <Image
-          src={image}
-          alt={title}
-          width={1280}
-          height={720}
-          priority={true}
-          className="w-full h-auto"
-        />
-      </Link>
-
-      <div className="w-full flex flex-col items-start justify-between  mt-4 ">
-        <span className="text-primary font-medium text-xl dark:text-primaryDark xs:text-base lg-text-lg md-text-base   ">
-          {" "}
-          Featured Project{" "}
-        </span>
-        <Link
-          href={link}
-          target="_blank"
-          className="hover:underline underline-offset-2 "
-        >
-          <h2 className="my-2 w-full text-left text-3xl font-bold  lg:text-2xl   ">
-            {title}
-          </h2>
-        </Link>
-        <p className="my-2 font-medium text-dark dark:text-light ">{summary}</p>
-        <div className="mt-2 flex items-center justify-between w-full ">
-          <Link
-            href={link}
-            target="_blank"
-            className="  text-lg font-semibold hover:underline dark:bg-dark dark:text-light md:text-base  "
-          >
-            Visit
-          </Link>
-          <Link href={github} target="_blank" className="w-8 md:w-6">
-            <GithubIcon />
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 function Projects({ projects }: Props) {
   return (
@@ -150,6 +24,11 @@ function Projects({ projects }: Props) {
       <Head>
         <title>Munazar Ali About Page</title>
         <meta name="description" content="any description" />
+        <meta
+          name="keywords"
+          content="software developer, web development, mobile app development, software engineering, tech industry, job search"
+        />
+        <meta name="author" content="Munazar Ali Abdulle" />
       </Head>
       <TransitionEffect />
       <main className="w-full mb-16 flex flex-col items-center justify-center dark:text-light  ">
@@ -185,21 +64,6 @@ function Projects({ projects }: Props) {
                 </article>
               );
             })}
-            {/* <article className='col-span-12'>
-                            <FeaturedProject title={projects[0].title} summary='A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-                            It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-                            local currency ' link='/' type='Featured Projects' github='/' image={projectpage} />
-                        </article>
-                        <article className='col-span-6 sm:col-span-12'>
-                            <Project title='Crypto Screener Application' summary='A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-                            It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-                            local currency ' link='/' type='Featured Projects' github='/' image={projectpage} />
-                        </article>
-                        <article className='col-span-6 sm:col-span-12'>
-                        <Project title='Crypto Screener Application' summary='A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-                            It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-                            local currency ' link='/' type='Featured Projects' github='/' image={projectpage} />
-                        </article> */}
           </section>
         </section>
       </main>
@@ -212,7 +76,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         ...,
         technologies[]->
     }`;
-  const projects: Project[] = await sanityClient.fetch(query);
+  const projects: Tproject[] = await sanityClient.fetch(query);
   return {
     props: { projects },
     revalidate: 10,
