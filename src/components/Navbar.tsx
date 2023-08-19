@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { GithubIcon, LinkedInIcon } from "./Icons";
 import Logo from "./Logo";
 import useThemeSwitcher from "./hooks/useThemeSwitcher";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
+import CustomMobileLink from "./CustomMobileLink";
+import CustomLink from "./CustomLink";
 
 const Navbar = () => {
   const { isDark, setIsDark } = useThemeSwitcher();
@@ -13,59 +13,7 @@ const Navbar = () => {
   const themeHandler = () => {
     setIsDark(!isDark);
   };
-  const CustomMobileLink = ({
-    href,
-    title,
-    className = "",
-  }: {
-    href: string;
-    title: string;
-    className: string;
-  }) => {
-    const router = useRouter();
-    const handleClick = () => {
-      setOpen(false);
-      router.push(href);
-    };
-    return (
-      <button
-        onClick={handleClick}
-        className={`${className} relative group text-light dark:text-dark my-2`}
-      >
-        {title}
-        <span
-          className={`h-[1px] inline-block  bg-light  absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300  ${
-            router.asPath === href ? "w-full" : "w-0"
-          } dark:bg-dark`}
-        >
-          &nbsp;
-        </span>
-      </button>
-    );
-  };
-  const CustomLink = ({
-    href,
-    title,
-    className = "",
-  }: {
-    href: string;
-    title: string;
-    className: string;
-  }) => {
-    const router = useRouter();
-    return (
-      <Link href={href} className={`${className} relative group`}>
-        {title}
-        <span
-          className={`h-[1px] inline-block  bg-dark absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 dark:bg-light ${
-            router.asPath === href ? "w-full" : "w-0"
-          }`}
-        >
-          &nbsp;
-        </span>
-      </Link>
-    );
-  };
+
   const hamburgerClickHandler = () => {
     setOpen(!open);
   };
@@ -135,14 +83,14 @@ const Navbar = () => {
           className="min-w-[70vw]   flex flex-col justify-between items-center fixed  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 bg-dark/90 dark:bg-light/75 rounded-lg backdrop-blur-md py-12"
         >
           <nav className="flex items-center flex-col justify-center">
-            <CustomMobileLink href="/" title="Home" className="" />
-            <CustomMobileLink href="/about" title="About" className="" />
-            <CustomMobileLink href="/projects" title="Projects" className="" />
+            <CustomMobileLink href="/" title="Home" className="" setOpen={setOpen}/>
+            <CustomMobileLink href="/about" title="About" className="" setOpen={setOpen}/>
+            <CustomMobileLink href="/projects" title="Projects" className="" setOpen={setOpen}/>
             <CustomMobileLink
               href="/contact"
               title="Contact"
-              className="
-        "
+              className=""
+              setOpen={setOpen}
             />
           </nav>
           <nav className="flex items-center justify-center flex-wrap my-2">
