@@ -9,10 +9,10 @@ export default function Document() {
         <Script id="theme-switcher" strategy="beforeInteractive">
           {`
           if (localStorage.theme === 'true' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  document.documentElement.classList.add('dark')
-} else {
-  document.documentElement.classList.remove('dark')
-}`}
+            document.documentElement.classList.add('dark')
+          } else {
+            document.documentElement.classList.remove('dark')
+          }`}
         </Script>
         <Main />
         <NextScript />
