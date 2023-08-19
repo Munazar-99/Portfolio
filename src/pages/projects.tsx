@@ -1,9 +1,5 @@
 import AnimatedText from "@/components/AnimatedText";
-import { GithubIcon } from "@/components/Icons";
-import { motion } from "framer-motion";
 import Head from "next/head";
-import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
 import React from "react";
 import TransitionEffect from "@/components/TransitionEffect";
 import { Tproject } from "../../typings";
