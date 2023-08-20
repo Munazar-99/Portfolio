@@ -21,6 +21,7 @@ const Navbar = () => {
     <header className="w-full px-32 py-8 font-medium flex items-center justify-between dark:text-light relative z-10 lg:px-16 md:px-12 sm:px-8">
       <button
         onClick={hamburgerClickHandler}
+        name="Hamburger menu"
         className=" flex-col justify-center items-center hidden lg:flex "
       >
         <span
@@ -67,6 +68,7 @@ const Navbar = () => {
           </motion.a>
           <button
             onClick={themeHandler}
+            name="theme changer"
             className="ml-3 flex items-center justify-center rounded-full p-1 "
           >
             <DarkModeSwitch
@@ -114,7 +116,8 @@ const Navbar = () => {
             </motion.a>
             <button
               onClick={themeHandler}
-              className="ml-3 flex items-center justify-center rounded-full p-1   "
+              name="theme changer"
+              className="ml-3 flex items-center justify-center rounded-full p-1"
             >
               <DarkModeSwitch checked={!isDark} onChange={themeHandler} />
             </button>
