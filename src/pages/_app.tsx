@@ -32,7 +32,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           content="software developer, web development, mobile app development, software engineering, tech industry, job search"
         />
         <meta name="author" content="Munazar Ali Abdulle" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/dark-logo.png" />
       </Head>
       <main
         className={`${montserrat.className} bg-light w-full min-h-screen dark:bg-dark `}
