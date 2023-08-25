@@ -20,11 +20,6 @@ const About = ({ aboutPage, skills }: Props) => {
       <Head>
         <title>Munazar Ali About Page</title>
         <meta name="description" content="My Background" />
-        <meta
-          name="keywords"
-          content="software developer, web development, mobile app development, software engineering, tech industry, job search"
-        />
-        <meta name="author" content="Munazar Ali Abdulle" />
       </Head>
       <TransitionEffect />
       <main className="flex w-full flex-col items-center justify-center dark:text-light  ">

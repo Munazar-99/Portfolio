@@ -32,12 +32,7 @@ const Contact = () => {
     <>
       <Head>
         <title>Munazar Ali Contact Page</title>
-        <meta name="description" content="any description" />
-        <meta
-          name="keywords"
-          content="software developer, web development, mobile app development, software engineering, tech industry, job search"
-        />
-        <meta name="author" content="Munazar Ali Abdulle" />
+        <meta name="description" content="contact" />
       </Head>
       <TransitionEffect />
 

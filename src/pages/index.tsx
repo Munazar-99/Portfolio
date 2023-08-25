@@ -24,15 +24,6 @@ export default function Home({ homepage }: Props) {
     <>
       <Head>
         <title>Software Developer Portfolio - Munazar Ali </title>
-        <meta
-          name="description"
-          content="Experienced software developer specializing in web development, mobile app development, and software engineering. Seeking new opportunities in the tech industry."
-        />
-        <meta
-          name="keywords"
-          content="software developer, web development, mobile app development, software engineering, tech industry, job search"
-        />
-        <meta name="author" content="Munazar Ali Abdulle" />
       </Head>
       <TransitionEffect />
       <main className="flex items-center text-dark w-full min-h-auto dark:text-light ">

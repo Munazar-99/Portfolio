@@ -19,12 +19,7 @@ function Projects({ projects }: Props) {
     <>
       <Head>
         <title>Munazar Ali About Page</title>
-        <meta name="description" content="any description" />
-        <meta
-          name="keywords"
-          content="software developer, web development, mobile app development, software engineering, tech industry, job search"
-        />
-        <meta name="author" content="Munazar Ali Abdulle" />
+        <meta name="description" content="notable projects" />
       </Head>
       <TransitionEffect />
       <main className="w-full mb-16 flex flex-col items-center justify-center dark:text-light  ">
