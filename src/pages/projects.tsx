@@ -18,7 +18,7 @@ function Projects({ projects }: Props) {
   return (
     <>
       <Head>
-        <title>Munazar Ali About Page</title>
+        <title>Munazar Ali Projects Page</title>
         <meta name="description" content="notable projects" />
       </Head>
       <TransitionEffect />
