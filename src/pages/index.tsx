@@ -15,11 +15,21 @@ type Props = {
 };
 
 export default function Home({ homepage }: Props) {
-  const [text, helper] = useTypewriter({
-    words: ["Software", "Front-End", "Back-End", "Full-Stack", "Mobile"],
+  const [typewriterText, helper] = useTypewriter({
+    words: ["Software", "Front-End", "Back-End", "Full-Stack"],
     loop: true,
     delaySpeed: 2000,
   });
+  const TypewriterSpan = () => (
+    <span className="inline-block min-w-[11%]">{typewriterText}</span>
+  );
+  const introWithTypewriter = homepage.introduction.replace(
+    "software",
+    // This is a placeholder that  splits the text 
+    "###TYPEWRITER###"
+  );
+  const parts = introWithTypewriter.split("###TYPEWRITER###");
+
   return (
     <>
       <Head>
@@ -49,8 +59,10 @@ export default function Home({ homepage }: Props) {
                   text={homepage.title}
                 />
               </h1>
-              <p className="my-4 text-base font-medium  md:text-sm sm:text-xs min-h-[128px] xs:text-left">
-                {homepage.introduction.replace("software", `${text}`)}
+              <p className="my-4 text-base font-medium md:text-sm sm:text-xs min-h-[128px] xs:text-left">
+                {parts[0]}
+                <TypewriterSpan />
+                {parts[1]}
               </p>
               <div className="flex items-center self-start mt-2 lg:self-center">
                 <Link
